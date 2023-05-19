@@ -17,63 +17,15 @@ Here are some of the skills and tools I've worked with:
 
 ## Projects
 
-<div class="row">
-  <div class="col-md-3">
-    <h3><a href="https://github.com/Maankaal-App">MaanKaal</a></h3>
-    <img src="https://github.com/abmoallim/abmoallim/blob/main/mankal.png" class="img-fluid">
-  </div>
-  
-  <div class="col-md-3">
-    <h3><a href="https://github.com/Target-so">Target Marketing</a></h3>
-    <img src="https://github.com/abmoallim/abmoallim/blob/main/target%20Logo%20icon.png" class="img-fluid">
-  </div>
 
-  <div class="col-md-3">
-    <h3><a href="#">Project Three Name</a></h3>
-    <img src="#" class="img-fluid">
-  </div>
-
-  <div class="col-md-3">
-    <h3><a href="#">Project Four Name</a></h3>
-    <img src="#" class="img-fluid">
-  </div>
-</div>
 
 <hr>
 ## Contact Me
 
-[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='linkedin' height='40'>](https://www.linkedin.com/in/abmoallim/)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg' alt='instagram' height='40'>](https://www.instagram.com/abmoallim/)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg' alt='twitter' height='40'>](https://twitter.com/abmoallim)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg' alt='YouTube' height='40'>](https://www.youtube.com/channel/abmoallim)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/icloud.svg' alt='website' height='40'>](www.abmoallim.com)  
+[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='linkedin' height='40' style='filter: invert(1);'>](https://www.linkedin.com/in/abmoallim/)
+[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg' alt='instagram' height='40' style='filter: invert(1);'>](https://www.instagram.com/abmoallim/)
+[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg' alt='twitter' height='40' style='filter: invert(1);'>](https://twitter.com/abmoallim)
+[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg' alt='YouTube' height='40' style='filter: invert(1);'>](https://www.youtube.com/channel/abmoallim)
+[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/icloud.svg' alt='website' height='40' style='filter: invert(1);'>](www.abmoallim.com)
 
 
-Copy
-<header class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <img class="img-fluid" src="https://github.com/abmoallim/abmoallim/blob/main/Good%20code.png" alt="banner" />
-    <h1 class="display-4">Hi there 👋</h1>
-    <p class="lead">
-      I'm Abdihamid, a full-stack developer and entrepreneur with three years of experience. I love coding and
-      solving problems, and JavaScript is my favorite language.
-    </p>
-  </div>
-</header>
-
-<section id="projects" class="container py-5">
-  <h2>Projects</h2>
-  <hr class="my-4" />
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card mb-4">
-        <img class="card-img-top" src="https://github.com/abXdz2IhqMdGGEwT/Il821TwBEWU7UHVboyPc+NmwpSQJXJs7lMkahDH4MhQ6f+/3"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI9MdXpentesC0CdT0P"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-  integrity="sha384-D/2TsQm7vE6Tu2Q6tPbTv7uoG6sxdzPOeQaC6EwXjKpEynLq0SjpHEmkz6Lb1KJI"
-  crossorigin="anonymous"
-></script>
-</body> </html>
