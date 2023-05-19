@@ -1,5 +1,5 @@
 <!-- Banner Image -->
-![Banner Image]([https://i.imgur.com/MBbRjyJ.png](https://github.com/abmoallim/abmoallim/blob/main/Good%20code.png))
+![Banner Image](https://github.com/abmoallim/abmoallim/blob/main/Good%20code.png)
 
 ### Hi there 👋
 
