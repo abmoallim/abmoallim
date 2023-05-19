@@ -1,20 +1,26 @@
-[![Header](https://i.imgur.com/MBbRjyJ.png)](https://github.com/abmoallim)
+<!-- Banner Image -->
+![Banner Image](https://i.imgur.com/MBbRjyJ.png)
 
-# Hi there, I'm Abdihamid 👋
+### Hi there 👋
 
-## About Me
+I'm Abdihamid, a full-stack developer and entrepreneur with three years of experience. I love coding and solving problems, and JavaScript is my favorite language.
 
-I'm a full-stack developer with 3 years of experience and an entrepreneur with multiple startups. I enjoy coding and solving problems, and JavaScript is my favorite language.
+### Skills & Tools
 
-## Skills
+Here are some of the skills and tools I've worked with:
 
-- HTML/CSS
-- JavaScript
-- React
-- Node.js
-- MongoDB
+<p>
+  <img alt="HTML5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
+  <img alt="CSS3" src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3" />
+  <img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript" />
+  <img alt="Python" src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+  <img alt="Java" src="https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white" />
+  <img alt="C#"src="https://img.shields.io/badge/-C%23-239120?style=flat-square&logo=c-sharp&logoColor=white" />
+  <img alt="Node.js" src="https://img.shields.io/badge/-Node.js-green?style=flat-square&logo=node.js&logoColor=white" />
+  <img alt="Flutter" src="https://img.shields.io/badge/-Flutter-02569B?style=flat-square&logo=flutter&logoColor=white" />
+</p>
 
-## Projects
+### Projects
 
 Here are some of my recent projects:
 
@@ -22,7 +28,9 @@ Here are some of my recent projects:
 - [Project 2](https://github.com/abmoallim/project-2)
 - [Project 3](https://github.com/abmoallim/project-3)
 
-## Contact Me
+### Contact Me
+
+Feel free to reach out to me:
 
 - Email: [abdihamid@example.com](mailto:abdihamid@example.com)
 - LinkedIn: [linkedin.com/in/abdihamid](https://www.linkedin.com/in/abdihamid/)
