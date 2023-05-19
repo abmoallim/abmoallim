@@ -1,8 +1,29 @@
-- 👋 Hi, I’m @abmoallim
-- 👀 I’m interested in ... Backend, AI and ML
-- 🌱 I’m currently learning ... Node js,Express, Algorithms 
-- 💞️ I’m looking to collaborate on ... small and medium sized projects with Node js 
-- 📫 How to reach me ... 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=abmoallim)](https://github.com/anuraghazra/github-readme-stats)
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=abmoallim&show_icons=true&theme=radical)
+[![Header](https://i.imgur.com/MBbRjyJ.png)](https://github.com/abmoallim)
 
+# Hi there, I'm Abdihamid 👋
+
+## About Me
+
+I'm a full-stack developer with 3 years of experience and an entrepreneur with multiple startups. I enjoy coding and solving problems, and JavaScript is my favorite language.
+
+## Skills
+
+- HTML/CSS
+- JavaScript
+- React
+- Node.js
+- MongoDB
+
+## Projects
+
+Here are some of my recent projects:
+
+- [Project 1](https://github.com/abmoallim/project-1)
+- [Project 2](https://github.com/abmoallim/project-2)
+- [Project 3](https://github.com/abmoallim/project-3)
+
+## Contact Me
+
+- Email: [abdihamid@example.com](mailto:abdihamid@example.com)
+- LinkedIn: [linkedin.com/in/abdihamid](https://www.linkedin.com/in/abdihamid/)
+- Twitter: [@abmoallim](https://twitter.com/abmoallim)
