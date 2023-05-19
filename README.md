@@ -13,14 +13,20 @@ Here are some of the skills and tools I've worked with:
 <hr>
 ## Projects
 
-Here are some of my recent projects:
+### Here are some of my recent projects:
 
-- [MaanKaal](https://github.com/Maankaal-App)
-  <img src="https://github.com/abmoallim/abmoallim/blob/main/mankal.png" width="240px">
+
+<div style="display:flex;flex-wrap:wrap;">
+  <div style="flex:1;padding:5px;">
+    <h3><a href="https://github.com/Maankaal-App">MaanKaal</a></h3>
+    <img src="https://github.com/abmoallim/abmoallim/blob/main/mankal.png" width="180px">
+  </div>
   
-- [Target Marketing](https://github.com/Target-so)
-  <img src="https://github.com/abmoallim/abmoallim/blob/main/target%20Logo%20icon.png" width="240px">
-
+  <div style="flex:1;padding:5px;">
+    <h3><a href="https://github.com/Target-so">Target Marketing</a></h3>
+    <img src="https://github.com/abmoallim/abmoallim/blob/main/target%20Logo%20icon.png" width="180px">
+  </div>
+</div>
 
 
 ### Contact Me
