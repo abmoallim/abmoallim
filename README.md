@@ -15,20 +15,30 @@ Here are some of the skills and tools I've worked with:
 
 ### Here are some of my recent projects:
 
-<div style="display:flex;flex-wrap:wrap;">
-  <div style="flex:1;padding:5px;max-width:20%;">
+## Projects
+
+<div class="row">
+  <div class="col-md-3">
     <h3><a href="https://github.com/Maankaal-App">MaanKaal</a></h3>
-    <img src="https://github.com/abmoallim/abmoallim/blob/main/mankal.png" width="100%">
+    <img src="https://github.com/abmoallim/abmoallim/blob/main/mankal.png" class="img-fluid">
   </div>
   
-  <div style="flex:1;padding:5px;max-width:20%;">
+  <div class="col-md-3">
     <h3><a href="https://github.com/Target-so">Target Marketing</a></h3>
-    <img src="https://github.com/abmoallim/abmoallim/blob/main/target%20Logo%20icon.png" width="100%">
+    <img src="https://github.com/abmoallim/abmoallim/blob/main/target%20Logo%20icon.png" class="img-fluid">
   </div>
 
-  <!-- Add more projects as necessary -->
+  <div class="col-md-3">
+    <h3><a href="#">Project Three Name</a></h3>
+    <img src="#" class="img-fluid">
+  </div>
 
+  <div class="col-md-3">
+    <h3><a href="#">Project Four Name</a></h3>
+    <img src="#" class="img-fluid">
+  </div>
 </div>
+
 <hr>
 ## Contact Me
 
