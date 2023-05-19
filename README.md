@@ -15,21 +15,22 @@ Here are some of the skills and tools I've worked with:
 
 ### Here are some of my recent projects:
 
-
 <div style="display:flex;flex-wrap:wrap;">
-  <div style="flex:1;padding:5px;">
+  <div style="flex:1;padding:5px;max-width:20%;">
     <h3><a href="https://github.com/Maankaal-App">MaanKaal</a></h3>
-    <img src="https://github.com/abmoallim/abmoallim/blob/main/mankal.png" width="180px">
+    <img src="https://github.com/abmoallim/abmoallim/blob/main/mankal.png" width="100%">
   </div>
   
-  <div style="flex:1;padding:5px;">
+  <div style="flex:1;padding:5px;max-width:20%;">
     <h3><a href="https://github.com/Target-so">Target Marketing</a></h3>
-    <img src="https://github.com/abmoallim/abmoallim/blob/main/target%20Logo%20icon.png" width="180px">
+    <img src="https://github.com/abmoallim/abmoallim/blob/main/target%20Logo%20icon.png" width="100%">
   </div>
+
+  <!-- Add more projects as necessary -->
+
 </div>
-
-
-### Contact Me
+<hr>
+## Contact Me
 
 [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='linkedin' height='40'>](https://www.linkedin.com/in/abmoallim/)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg' alt='instagram' height='40'>](https://www.instagram.com/abmoallim/)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg' alt='twitter' height='40'>](https://twitter.com/abmoallim)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/youtube.svg' alt='YouTube' height='40'>](https://www.youtube.com/channel/abmoallim)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/icloud.svg' alt='website' height='40'>](www.abmoallim.com)  
 
