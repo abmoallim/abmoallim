@@ -1,5 +1,4 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <meta http-equiv="X-UA-Compatible" content="ie=edge" /> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-Dziy3Cw6JLXGb+2mJwFYeWJtSrHi4EwGLx6GxhX4VqUv/Hzt1BbZmTE1a7kIvI6M" crossorigin="anonymous" /> <title>Abdihamid's Portfolio</title> </head> <body> <nav class="navbar navbar-expand-lg navbar-light bg-light"> <a class="navbar-brand" href="#">Abdihamid's Portfolio</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" > <span class="navbar-toggler-icon"></span </button> <div class="collapse navbar-collapse" id="navbarNav"> <ul class="navbar-nav ml-auto"> <li class="nav-item"> <a class="nav-link" href="#">Home</a> </li> <li class="nav-item"> <a class="nav-link" href="#projects">Projects</a> </li> </ul> </div> </nav>
-angelscript<!-- Banner Image -->
+<!-- Banner Image -->
 ![Banner Image](https://github.com/abmoallim/abmoallim/blob/main/Good%20code.png)
 
 ### Hi there 👋
