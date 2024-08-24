@@ -6,7 +6,18 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --prismjs-theme: 'atom-dark';
 }
+
+/* For PrismJS code highlighting */
+pre[class*="language-"] {
+  overflow: auto;
+  padding: 1em;
+  border-radius: 0.5em;
+  background: #2d2d2d; /* Atom Dark Theme Background */
+  color: #f8f8f2;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {

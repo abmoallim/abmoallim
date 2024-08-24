@@ -26,6 +26,9 @@ export default function Header() {
             <Link href="/projects" legacyBehavior>
               <a className="text-gray-800 hover:text-emerald-600">Projects</a>
             </Link>
+            <Link href="/blog" legacyBehavior>
+              <a className="text-gray-800 hover:text-emerald-600">blog</a>
+            </Link>
             <Link href="/contact" legacyBehavior>
               <a className="text-gray-800 hover:text-emerald-600">Contact</a>
             </Link>
@@ -46,6 +49,9 @@ export default function Header() {
               </Link>
               <Link href="/projects" legacyBehavior>
                 <a className="block text-gray-800 hover:text-emerald-600" onClick={handleLinkClick}>Projects</a>
+              </Link>
+              <Link href="/blog" legacyBehavior>
+                <a className="block text-gray-800 hover:text-emerald-600" onClick={handleLinkClick}>blog</a>
               </Link>
               <Link href="/contact" legacyBehavior>
                 <a className="block text-gray-800 hover:text-emerald-600" onClick={handleLinkClick}>Contact</a>
