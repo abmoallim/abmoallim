@@ -4,6 +4,18 @@ import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 
+export async function generateStaticParams() {
+    const files = fs.readdirSync(path.join('posts'));
+
+    const paths = files.map((filename) => {
+        return {
+            slug: filename.replace('.md', ''),
+        };
+    });
+
+    return paths;
+}
+
 export default async function BlogPostPage({ params }) {
     const { slug } = params;
 

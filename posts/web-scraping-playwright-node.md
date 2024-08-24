@@ -3,7 +3,7 @@ title: "Web Scraping with Playwright and Node.js: A Practical Tutorials"
 date: "2024-08-24"
 readingTime: "8 min read"
 ---
-
+![alt text](/imgs/web-scraping.png)
 Web scraping is an essential technique in a developer's toolkit, allowing the extraction of data from websites for various purposes, such as data analysis, monitoring, and automation. Playwright, paired with Node.js, provides a powerful and flexible framework for web scraping, especially when dealing with modern, dynamic websites. In this tutorial, we'll walk you through setting up a web scraping project with Playwright and cover essential aspects of scraping, from basic setups to handling more complex scenarios.
 
 ### 1. Setting Up Your Environment
