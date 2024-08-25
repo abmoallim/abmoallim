@@ -6,7 +6,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const Hero = () => {
     return (
-        <section className="flex flex-col md:flex-row items-center justify-center text-center md:text-left pt-32 py-28 bg-white">
+        <section className="bg-white dark:bg-gray-800 text-black dark:text-white flex flex-col md:flex-row items-center justify-center text-center md:text-left pt-32 py-28">
             <img 
                 src="/imgs/profile-pic.png" 
                 alt="Abdihamid Moallim" 

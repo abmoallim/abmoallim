@@ -13,24 +13,24 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-md fixed top-4 left-1/2 transform -translate-x-1/2 w-full md:w-3/4 z-50 rounded-full border px-8">
+    <header className="bg-white dark:bg-gray-800 text-black dark:text-white shadow-md fixed top-4 left-1/2 transform -translate-x-1/2 w-full md:w-3/4 z-50 rounded-full border px-8">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-3xl font-mono font-bold text-gray-600 ml-2">Abmoallim</span>
+          <span className="text-3xl font-mono font-bold text-gray-600 dark:text-slate-400 ml-2">Abmoallim</span>
         </div>
         <div className="hidden md:flex-1 md:flex md:justify-end">
           <nav className="space-x-12 text-lg flex items-center font-mono">
             <Link href="/" legacyBehavior>
-              <a className="text-gray-800 hover:text-emerald-600">About</a>
+              <a className="text-gray-800 dark:text-slate-300 hover:text-emerald-600">About</a>
             </Link>
             <Link href="/projects" legacyBehavior>
-              <a className="text-gray-800 hover:text-emerald-600">Projects</a>
+              <a className="text-gray-800 dark:text-slate-300 hover:text-emerald-600">Projects</a>
             </Link>
             <Link href="/blog" legacyBehavior>
-              <a className="text-gray-800 hover:text-emerald-600">blog</a>
+              <a className="text-gray-800 dark:text-slate-300 hover:text-emerald-600">blog</a>
             </Link>
             <Link href="/contact" legacyBehavior>
-              <a className="text-gray-800 hover:text-emerald-600">Contact</a>
+              <a className="text-gray-800 dark:text-slate-300 hover:text-emerald-600">Contact</a>
             </Link>
           </nav>
         </div>
@@ -41,20 +41,20 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md">
+        <div className="absolute top-full left-0 w-full bg-white dark:bg-slate-800 shadow-md">
           <div className="container mx-auto px-6 py-4">
             <nav className="space-y-6 text-lg font-mono">
               <Link href="/" legacyBehavior>
-                <a className="block text-gray-800 hover:text-emerald-600" onClick={handleLinkClick}>About</a>
+                <a className="block text-gray-800 dark:text-slate-300 hover:text-emerald-600" onClick={handleLinkClick}>About</a>
               </Link>
               <Link href="/projects" legacyBehavior>
-                <a className="block text-gray-800 hover:text-emerald-600" onClick={handleLinkClick}>Projects</a>
+                <a className="block text-gray-800 dark:text-slate-300 hover:text-emerald-600" onClick={handleLinkClick}>Projects</a>
               </Link>
               <Link href="/blog" legacyBehavior>
-                <a className="block text-gray-800 hover:text-emerald-600" onClick={handleLinkClick}>blog</a>
+                <a className="block text-gray-800 dark:text-slate-300 hover:text-emerald-600" onClick={handleLinkClick}>blog</a>
               </Link>
               <Link href="/contact" legacyBehavior>
-                <a className="block text-gray-800 hover:text-emerald-600" onClick={handleLinkClick}>Contact</a>
+                <a className="block text-gray-800 dark:text-slate-300 hover:text-emerald-600" onClick={handleLinkClick}>Contact</a>
               </Link>
             </nav>
           </div>

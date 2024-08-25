@@ -55,15 +55,15 @@ const projects = [
 
 const Projects = () => {
     return (
-        <section id="projects" className="pt-32 py-16 bg-white text-gray-700">
+        <section id="projects" className="pt-32 py-16 bg-white dark:bg-gray-800 text-black dark:text-white">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">Projects</h2>
+                <h2 className="text-4xl font-bold text-center dark:text-slate-300 text-gray-900 mb-8">Projects</h2>
                 <div className="space-y-8">
                     {projects.map((project, index) => (
-                        <div key={index} className="flex flex-col md:flex-row items-center bg-white border rounded-lg shadow-md p-6 transition-shadow hover:shadow-lg hover:shadow-gray-800">
+                        <div key={index} className="flex flex-col md:flex-row items-center bg-white dark:bg-slate-900 text-black dark:text-white  border rounded-lg shadow-md p-6 transition-shadow hover:shadow-lg hover:shadow-gray-800">
                             <div className="md:w-2/3 md:pr-6">
-                                <h3 className="text-2xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                                <p className="text-gray-600 mb-4">{project.description}</p>
+                                <h3 className="text-2xl font-semibold text-gray-800 dark:text-slate-400 mb-2">{project.title}</h3>
+                                <p className="text-gray-600 dark:text-slate-500 mb-4">{project.description}</p>
                                 <div className="text-gray-500 text-sm mb-4">
                                     <strong>Technologies:</strong> {project.technologies.join(', ')}
                                 </div>

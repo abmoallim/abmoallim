@@ -50,16 +50,16 @@ const WorkExperience = () => {
     ];
 
     return (
-        <section id="work-experience" className="py-16 bg-gray-50 text-gray-700">
+        <section id="work-experience" className="py-16 bg-white dark:bg-gray-700 text-black dark:text-white">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">Companies I Worked In</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {experiences.map((exp, index) => (
-                        <div key={index} className="p-6 border rounded-lg shadow-md bg-white flex flex-col md:flex-row items-start transition-shadow hover:shadow-lg hover:shadow-blue-300">
+                        <div key={index} className="p-6 border rounded-lg shadow-md bg-white dark:bg-slate-800 text-black dark:text-white flex flex-col md:flex-row items-start transition-shadow hover:shadow-lg hover:shadow-blue-300">
                             <div className="flex-none mb-4 md:mb-0 md:mr-8">
                                 {/* <FontAwesomeIcon icon={faBriefcase} className="text-black w-12 h-12 mb-4" /> */}
                                 <p className="text-blue-600 font-semibold">{exp.duration}</p>
-                                <p className="text-gray-800 font-bold">{exp.role}</p>
+                                <p className="text-gray-800 dark:text-gray-400 font-bold">{exp.role}</p>
                                 <p className="text-gray-600">{exp.company}</p>
                                 <p className="text-gray-400">{exp.location}</p>
                             </div>
