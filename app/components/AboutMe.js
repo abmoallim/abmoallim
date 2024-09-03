@@ -6,7 +6,7 @@ const AboutMe = () => {
         <section id="about" className="py-16 bg-white dark:bg-gray-800  text-black dark:text-white">
             <hr className="border-t-2 border-gray-300 mx-32 py-6" />
             <div className="container mx-auto px-6 md:px-12 lg:px-24 text-center md:text-left ">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-emerald-600 mb-8">About Me</h2>
+                <h2 className="text-4xl font-bold text-gray-900 dark:text-slate-300 mb-8">About Me</h2>
                 <div className="flex flex-col md:flex-row items-center md:space-x-12">
                     <img 
                         src="/imgs/about-pic1.png" 

@@ -16,8 +16,8 @@ const Hero = () => {
                 <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 mb-2">
                     Abdihamid Moallim
                 </h1>
-                <h2 className="text-2xl font-light text-gray-600 mb-4">Fullstack Developer |<span className='text-lg'> AI enthusiast</span> </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <h2 className="text-2xl font-light text-gray-600 mb-4 dark:text-slate-400">Fullstack Developer |<span className='text-lg'> AI enthusiast</span> </h2>
+                <p className="text-lg text-gray-600 dark:text-slate-400 mb-8">
                     Top Talent award winner @ SIMAD iLab
                 </p>
                 <div className="flex space-x-4">
@@ -30,7 +30,7 @@ const Hero = () => {
                     </a>
                     <a 
                         href="/contact" 
-                        className="bg-gray-400 text-white py-2 px-4 rounded-full hover:bg-gray-300"
+                        className="bg-gray-400 dark:text-slate-950 text-white py-2 px-4 rounded-full hover:bg-gray-300"
                     >
                         Contact Info
                     </a>
