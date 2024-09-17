@@ -3,6 +3,13 @@
 
 const projects = [
     {
+        title: 'Internsim',
+        description: 'A platform offering personalized, story-driven internship simulations to elevate skills with AI-generated tasks and real-world scenarios.',
+        technologies: ['Next.js', 'Vercel', 'AI'],
+        link: 'https://internsim.vercel.app/',
+        image: '/imgs/internsim.png',  // You'll need to add this image to your project
+    },
+    {
         title: 'InterviewWay',
         description: 'A platform helping users prepare for interviews and assessments, providing tailored resources and practice tools.',
         technologies: ['Next.js', 'Tailwind CSS', 'PostgreSQL', 'FastAPI'],
