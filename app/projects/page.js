@@ -1,6 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 // app/projects/page.js
 
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Image from 'next/image';
+
 const projects = [
     {
         title: 'Internsim',
@@ -62,35 +67,40 @@ const projects = [
 
 const Projects = () => {
     return (
-        <section id="projects" className="pt-32 py-16 bg-white dark:bg-gray-800 text-black dark:text-white">
+        <section id="projects" className="pt-32 py-16 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-4xl font-bold text-center dark:text-slate-300 text-gray-900 mb-8">Projects</h2>
+                <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
                 <div className="space-y-8">
                     {projects.map((project, index) => (
-                        <div key={index} className="flex flex-col md:flex-row items-center bg-white dark:bg-slate-900 text-black dark:text-white  border rounded-lg shadow-md p-6 transition-shadow hover:shadow-lg hover:shadow-gray-800">
-                            <div className="md:w-2/3 md:pr-6">
-                                <h3 className="text-2xl font-semibold text-gray-800 dark:text-slate-400 mb-2">{project.title}</h3>
-                                <p className="text-gray-600 dark:text-slate-500 mb-4">{project.description}</p>
-                                <div className="text-gray-500 text-sm mb-4">
-                                    <strong>Technologies:</strong> {project.technologies.join(', ')}
+                        <Card key={index} className="transition-shadow hover:shadow-lg hover:shadow-primary/25 dark:hover:shadow-primary/20">
+                            <CardContent className="p-6">
+                                <div className="flex flex-col md:flex-row items-center">
+                                    <div className="md:w-2/3 md:pr-6">
+                                        <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+                                        <p className="text-muted-foreground mb-4">{project.description}</p>
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {project.technologies.map((tech, techIndex) => (
+                                                <Badge key={techIndex} variant="secondary">{tech}</Badge>
+                                            ))}
+                                        </div>
+                                        <Button asChild variant="default">
+                                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                                View Project
+                                            </a>
+                                        </Button>
+                                    </div>
+                                    <div className="md:w-1/3 mt-4 md:mt-0">
+                                        <Image 
+                                            src={project.image} 
+                                            alt={`${project.title} screenshot`} 
+                                            width={300}
+                                            height={200}
+                                            className="rounded-lg object-cover"
+                                        />
+                                    </div>
                                 </div>
-                                <a 
-                                    href={project.link} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="inline-block bg-gray-700 text-white py-2 px-4 rounded-full hover:bg-gray-900 transition"
-                                >
-                                    View Project
-                                </a>
-                            </div>
-                            <div className="md:w-1/3 mt-4 md:mt-0">
-                                <img 
-                                    src={project.image} 
-                                    alt={`${project.title} screenshot`} 
-                                    className="rounded-lg w-full h-48 object-cover"
-                                />
-                            </div>
-                        </div>
+                            </CardContent>
+                        </Card>
                     ))}
                 </div>
             </div>

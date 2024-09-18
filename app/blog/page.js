@@ -3,6 +3,10 @@
 
 'use client';
 import { useState } from 'react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Image from 'next/image';
+import Link from 'next/link';
 
 const blogs = [
     {
@@ -26,35 +30,36 @@ const Blog = () => {
     };
 
     return (
-        <section id="blog" className="pt-32 py-16 bg-white dark:bg-gray-800 text-black dark:text-white">
+        <section id="blog" className="pt-36 py-16 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-slate-400 mb-8">Blog</h2>
+                <h2 className="text-4xl font-bold text-center mb-8">Blog</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {blogs.slice(0, visibleBlogs).map((blog, index) => (
-                        <a 
-                            key={index} 
-                            href={`/blog/${blog.slug}`} 
-                            className="block bg-white dark:bg-slate-900 text-black dark:text-white border rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-lg hover:shadow-gray-800"
-                        >
-                            <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover" />
-                            <div className="p-4">
-                                <h3 className="text-2xl font-semibold text-gray-900 dark:text-slate-500 mb-2">{blog.title}</h3>
-                                <div className="flex justify-between items-center text-gray-500 text-sm mb-2">
-                                    <span>{blog.readingTime}</span>
-                                    <span>{blog.date}</span>
-                                </div>
-                            </div>
-                        </a>
+                        <Link key={index} href={`/blog/${blog.slug}`}>
+                            <Card className="h-full transition-shadow hover:shadow-lg hover:shadow-primary/25 dark:hover:shadow-primary/20">
+                                <Image 
+                                    src={blog.image} 
+                                    alt={blog.title} 
+                                    width={400} 
+                                    height={200} 
+                                    className="w-full h-48 object-cover"
+                                />
+                                <CardContent className="p-4">
+                                    <h3 className="text-xl font-semibold mb-2">{blog.title}</h3>
+                                    <div className="flex justify-between items-center text-sm text-muted-foreground">
+                                        <span>{blog.readingTime}</span>
+                                        <span>{blog.date}</span>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </Link>
                     ))}
                 </div>
                 {visibleBlogs < blogs.length && (
                     <div className="text-center mt-8">
-                        <button 
-                            onClick={loadMore}
-                            className="bg-slate-200 hover:bg-slate-300 text-slate-900 font-bold py-2 px-4 rounded-full"
-                        >
+                        <Button onClick={loadMore} variant="outline">
                             Load More
-                        </button>
+                        </Button>
                     </div>
                 )}
             </div>

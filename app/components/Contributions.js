@@ -1,4 +1,7 @@
-// app/components/Contributions.js
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 const Contributions = () => {
     const contributions = [
@@ -25,16 +28,23 @@ const Contributions = () => {
     ];
 
     return (
-        <section id="contributions" className="py-16 bg-white dark:bg-gray-800 text-black dark:text-white">
+        <section id="contributions" className="py-16 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-4xl font-bold text-gray-900 dark:text-slate-300  mb-8">Contributions</h2>
+                <h2 className="text-4xl font-bold text-center mb-8">Contributions</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {contributions.map((contribution, index) => (
-                        <div key={index} className="p-6 border-b-2 border-gray-300">
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{contribution.title}</h3>
-                            <p className="text-gray-600 dark:text-slate-400">{contribution.role}</p>
-                            <p className="text-gray-400 mt-2">Date: {contribution.date}</p>
-                        </div>
+                        <Card key={index} className="transition-shadow hover:shadow-lg hover:shadow-primary/25 dark:hover:shadow-primary/20">
+                            <CardContent className="p-6">
+                                <div className="flex flex-col space-y-2">
+                                    <h3 className="text-xl font-semibold">{contribution.title}</h3>
+                                    <Badge variant="secondary" className="w-fit">{contribution.role}</Badge>
+                                    <div className="flex items-center text-sm text-muted-foreground">
+                                        <FontAwesomeIcon icon={faCalendar} className="w-4 h-4 mr-2" />
+                                        {contribution.date}
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
                     ))}
                 </div>
             </div>

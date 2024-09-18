@@ -1,7 +1,9 @@
 // app/components/WorkExperience.js
 
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faLocationDot, faClock } from '@fortawesome/free-solid-svg-icons';
 
 const WorkExperience = () => {
     const experiences = [
@@ -50,23 +52,28 @@ const WorkExperience = () => {
     ];
 
     return (
-        <section id="work-experience" className="py-16 bg-white dark:bg-gray-700 text-black dark:text-white">
+        <section id="work-experience" className="py-16 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-4xl font-bold text-center text-gray-900 mb-8">Companies I Worked In</h2>
+                <h2 className="text-4xl font-bold text-center mb-8">Work Experience</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {experiences.map((exp, index) => (
-                        <div key={index} className="p-6 border dark:border-slate-600 rounded-lg shadow-md bg-white dark:bg-slate-900 text-black dark:text-white flex flex-col md:flex-row items-start transition-shadow hover:shadow-lg hover:shadow-blue-300">
-                            <div className="flex-none mb-4 md:mb-0 md:mr-8">
-                                {/* <FontAwesomeIcon icon={faBriefcase} className="text-black w-12 h-12 mb-4" /> */}
-                                <p className="text-blue-600 font-semibold">{exp.duration}</p>
-                                <p className="text-gray-800 dark:text-gray-400 font-bold">{exp.role}</p>
-                                <p className="text-gray-600">{exp.company}</p>
-                                <p className="text-gray-400">{exp.location}</p>
-                            </div>
-                            <div className="flex-grow text-gray-600 dark:text-slate-400">
-                                <p>{exp.description}</p>
-                            </div>
-                        </div>
+                        <Card key={index} className="transition-shadow hover:shadow-lg hover:shadow-primary/25 dark:hover:shadow-primary/20">
+                            <CardContent className="p-6">
+                                <div className="flex flex-col space-y-2">
+                                    <h3 className="text-xl font-semibold">{exp.company}</h3>
+                                    <Badge variant="secondary" className="w-fit">{exp.role}</Badge>
+                                    <div className="flex items-center text-sm text-muted-foreground">
+                                        <FontAwesomeIcon icon={faClock} className="w-4 h-4 mr-2" />
+                                        {exp.duration}
+                                    </div>
+                                    <div className="flex items-center text-sm text-muted-foreground">
+                                        <FontAwesomeIcon icon={faLocationDot} className="w-4 h-4 mr-2" />
+                                        {exp.location}
+                                    </div>
+                                    <p className="mt-2 text-sm">{exp.description}</p>
+                                </div>
+                            </CardContent>
+                        </Card>
                     ))}
                 </div>
             </div>
