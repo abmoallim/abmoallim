@@ -26,11 +26,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 fixed top-4 left-1/2 transform -translate-x-1/2 w-3/4 md:w-2/4 z-50 rounded-full border border-border px-8">
-      <div className="container mx-auto px-6 py-4 flex justify-center items-center">
-        {/* <div className="flex items-center">
+    <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 fixed top-4 left-1/2 transform -translate-x-1/2 w-full md:w-3/4 z-50 rounded-full border border-border px-8">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="flex items-center">
           <span className="text-3xl font-mono font-bold text-foreground ml-2">Abmoallim</span>
-        </div> */}
+        </div>
         <nav className="hidden md:flex space-x-8 text-lg items-center font-mono">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="text-foreground hover:text-primary transition-colors">
