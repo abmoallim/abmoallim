@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 const blogs = [
     {
-        title: 'OpenAI\'s Advanced Voice Model: I tried to teach it Somali language',
+        title: 'OpenAI\'s Advanced Voice Mode: I tried to teach it Somali language',
         slug: 'openai-advanced-voice-model-deep-dive',
         image: '/imgs/openai.png',
         readingTime: '5 min read',
