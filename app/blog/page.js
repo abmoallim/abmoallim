@@ -10,10 +10,17 @@ import Link from 'next/link';
 
 const blogs = [
     {
+        title: 'OpenAI\'s Advanced Voice Model: I tried to teach it Somali language',
+        slug: 'openai-advanced-voice-model-deep-dive',
+        image: '/imgs/openai.png',
+        readingTime: '5 min read',
+        date: 'September 28, 2024',
+    },
+    {
         title: 'Web Scraping with Playwright and Node.js: A Practical Tutorial',
         slug: 'web-scraping-playwright-node',
         image: '/imgs/web-scraping.png',
-        readingTime: '8 min read',
+        readingTime: '5 min read',
         date: 'August 24, 2024',
     },
     
