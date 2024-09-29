@@ -1,31 +1,33 @@
 ---
-title: " OpenAI's Advanced Voice mode: I tried to teach it Somali language"
+title: "OpenAI's Advanced Voice Mode: A Deep Dive and Somali Language Test"
 date: "2024-09-28"
-readingTime: "5 min read"
+readingTime: "7 min read"
 ---
 
-
-In this post, we’re going to explore OpenAI’s new **advanced voice mode**, focusing on its capabilities, limitations, and how it performs in **Somali language** based on our tests. I teamed up with **Muhammad**([@muhaksim](https://www.linkedin.com/in/muhaksim/)) to put this new mode through its paces, and we came away with some interesting findings!
-
----
-
-## What is the OpenAI Advanced Voice mode?
-
-OpenAI’s advanced voice mode is part of the latest innovations in natural language processing, designed to recognize and produce speech across multiple languages. The mode has a wide range of potential applications, including:
-
-- **Multilingual voice recognition**: Seamlessly recognizes and switches between multiple languages.
-- **Text-to-speech and speech-to-text**: Capable of generating high-quality, natural-sounding speech in real-time.
-- **Interactive learning**: Adapts to specific pronunciations and learning patterns.
+In this post, we're going to explore OpenAI's new **Advanced Voice Mode (AVM)**, focusing on its capabilities, limitations, and how it performs in **Somali language** based on our tests. I teamed up with **Muhammad** ([@muhaksim](https://www.linkedin.com/in/muhaksim/)) to put this new mode through its paces, and we came away with some interesting findings!
 
 ---
 
-## Key Features of the mode
+## What is OpenAI's Advanced Voice Mode?
 
-Here are some standout features of OpenAI's new voice mode:
+OpenAI's Advanced Voice Mode is a newly launched feature in ChatGPT designed to enhance the conversational experience through more natural and interactive voice communication. It's part of the latest innovations in natural language processing, designed to recognize and produce speech across multiple languages.
 
-- **Multilingual support**: One of the most impressive aspects is the mode’s ability to switch effortlessly between languages like **English** and **Somali**, making it highly versatile.
-- **Real-time adaptation**: During our tests, we noticed the mode can learn on the fly, adjusting pronunciations and improving based on feedback during a conversation.
-- **Natural voice synthesis**: The mode generates natural-sounding speech that can be fine-tuned for various accents and languages.
+### Key Aspects of AVM:
+
+- **Launch and Availability**: Rolled out to ChatGPT Plus and Teams subscribers on September 24, 2024. Plans to extend to Enterprise and Edu customers soon, but currently unavailable in several regions, including the EU and UK.
+- **New Interface**: Features a blue animated sphere instead of the previous black dots, making interactions more engaging.
+- **Voice Options**: Introduces five new voices (Arbor, Maple, Sol, Spruce, and Vale), bringing the total to nine.
+- **Technology**: Built on GPT-4's audio capabilities, allowing for real-time conversations that can pick up on non-verbal cues.
+
+---
+
+## Key Features of AVM
+
+1. **Natural Conversations**: Capable of understanding speech speed and emotional tone, creating more dynamic interactions.
+2. **Multilingual support**: Effortlessly switches between languages like English and Somali.
+3. **Real-time adaptation**: Learns on the fly, adjusting pronunciations and improving based on feedback.
+4. **Customization**: Allows personalization through Custom Instructions and Memory features (though not fully integrated yet).
+5. **Interactive learning**: Adapts to specific pronunciations and learning patterns.
 
 > **Screenshot 1**: ![Multilingual Switching](/imgs/multi.jpeg)
 
@@ -35,54 +37,54 @@ Here are some standout features of OpenAI's new voice mode:
 
 ### 🌟 **What We Liked**
 
-1. **Effortless Language Switching**: The mode moves smoothly between Somali and English, making it perfect for bilingual or multilingual users.
-   
-2. **Learning Capability**: We tested the mode by teaching it how to pronounce certain Somali letters like “C.” Surprisingly, it adapted quickly within the chat itself, showing real-time learning potential.
-
-3. **Text Generation**: The GPT-4-powered text generation in **Somali** was **excellent**. The fluency and coherence stood out, creating a smooth interaction.
+1. **Effortless Language Switching**: Smooth transitions between Somali and English.
+2. **Learning Capability**: Quickly adapted to pronunciation corrections, like the Somali letter "C."
+3. **Text Generation**: Excellent GPT-4-powered text generation in Somali, with high fluency and coherence.
 
 > **Screenshot 2**: ![Somali Text Generation](/imgs/story.jpeg)
 
 ### 🚩 **Areas for Improvement**
 
-1. **Transcription Accuracy**: The transcription was inconsistent at times, especially when generating random characters or words that didn’t match what was spoken. This issue occurred in both Somali and English, and I hope future updates will address this.
-   
-2. **Pronunciation Challenges**:
-   - **The letter "X"**: In Somali, the letter "X" is pronounced like “ha' ” but the AI mispronounced it consistently.
-   - **The letter "C"**: This letter, which sounds close to "a' " was also not pronounced accurately.
+1. **Transcription Accuracy**: Inconsistent at times, especially with random characters or words.
+2. **Pronunciation Challenges**: 
+   - Mispronunciation of Somali letters like "X" and "C."
 
 ---
 
 ## Improvements We Hope to See
 
-While the mode is quite powerful, there's always room for improvement. Here are a few areas where we believe it could get better:
+- **Enhanced Transcription**: Especially for non-Western languages like Somali.
+- **Better Handling of Complex Phonetics**: Improved pronunciation of language-specific sounds.
+- **Persistent Learning**: Ability to retain learned pronunciations across multiple sessions.
 
-- **Transcription Accuracy**: Enhancing the transcription system, especially for non-Western languages like Somali, would make a significant difference.
-- **Pronunciation of Complex Letters**: Adjusting how it handles phonetic nuances specific to languages like Somali would elevate its usability.
-- **Interactive Learning Over Multiple Sessions**: Although it learns within the chat session, it would be amazing if the learning could persist across multiple sessions for a more personalized experience.
+---
+
+## Technical Insights and Limitations
+
+- **Usage Limits**: Subscribers may face restrictions on daily voice interaction time.
+- **Regional Availability**: Not yet available in all regions, notably absent in the EU and UK.
+- **Ongoing Improvements**: OpenAI claims enhancements in accent understanding and conversation fluidity since alpha testing.
 
 ---
 
 ## Final Thoughts
 
-Overall, I’m impressed with the advancements made by OpenAI’s voice mode, especially its **multilingual support** and **real-time adaptation**. While there are some issues with transcription and pronunciation in Somali, the progress so far is exciting.
-
-I’m confident that future iterations of it will address these concerns, making it even more robust for languages like Somali.
+The Advanced Voice Mode represents a significant leap in making AI interactions more intuitive and engaging. While there are still challenges, particularly with languages like Somali, the progress is exciting. Future iterations will likely address current limitations, making it even more robust for diverse language applications.
 
 > **Screenshot 3**: ![Learning Pronunciations](/imgs/teach.jpeg)
 
 ---
+
 ## Special Thanks
 
-I would like to extend a special thanks to **Muhammed Khasim** who took part in testing the OpenAI's Advanced voice mode. His insights and feedback were invaluable in shaping this review.
-
-
+A special thanks to **Muhammed Khasim** for his invaluable insights and feedback during our testing of OpenAI's Advanced Voice Mode.
 
 ## Watch Our Test on YouTube
 
-We recorded our test of it in action. You can check out the full video here:
+We recorded our test of AVM in action. Check out the full video here:
 
 [![Watch on YouTube](/imgs/yt.png)](https://youtu.be/cmzi7sdWzSc)
 
+---
 
-
+Remember, while AVM feels almost human-like in its interactions, it's important to note that it doesn't possess genuine emotions or consciousness. It's a sophisticated algorithm designed to interpret and respond to user inputs in a natural, conversational manner.
