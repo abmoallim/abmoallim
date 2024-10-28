@@ -17,8 +17,8 @@ const WorkExperience = () => {
         {
             company: 'Shakir Group',
             role: 'Head of ICT',
-            duration: 'Sep 2023 - present',
-            location: 'Remote ',
+            duration: 'Oct 2023 - present',
+            location: 'Mogadishu - Remote',
             description: 'Led the digital transformation of the company by implementing a comprehensive ERP system and optimizing IT infrastructure.',
         },
         {

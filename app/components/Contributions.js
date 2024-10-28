@@ -17,12 +17,12 @@ const Contributions = () => {
         },
         {
             title: 'Speaker | IRISE HUB',
-            role: 'Understanding AI Landscape in Somalia',
+            role: 'Speacker - Understanding AI Landscape in Somalia',
             date: 'Oct 2023',
         },
         {
             title: 'Speaker | Abdiaziz Youth Center (NGO)',
-            role: 'Become freelancer – Tech related niches',
+            role: 'Speaker - Become freelancer, Tech related niches',
             date: 'Mar 2023',
         },
     ];
