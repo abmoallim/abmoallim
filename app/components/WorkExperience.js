@@ -8,11 +8,11 @@ import { faBriefcase, faLocationDot, faClock } from '@fortawesome/free-solid-svg
 const WorkExperience = () => {
     const experiences = [
         {
-            company: 'Interview Way',
+            company: 'Infinitely services',
             role: 'Founder',
-            duration: 'July 2024 - present',
+            duration: 'Sep 2024 - present',
             location: 'Remote',
-            description: 'Built and scaled a platform that assists job seekers with interview preparation through AI-driven tools and resources.',
+            description: 'Technology consulting firm dedicated to empowering businesses through personalized AI tools and automation solutions.',
         },
         {
             company: 'Shakir Group',
