@@ -19,7 +19,7 @@ const AboutMe = () => {
                     />
                     <div>
                         <p className="text-lg mb-4">
-                            I&apos;m a passionate Fullstack Developer focused on web technologies and AI. I create meaningful experiences that solve real-world problems.
+                            I&apos;m a Fullstack Developer focused on web technologies and AI. I create meaningful experiences that solve real-world problems.
                         </p>
                         <p className="text-lg mb-4">
                             My journey in software development is driven by curiosity and a desire to innovate. I&apos;m always eager to learn and take on new challenges.
