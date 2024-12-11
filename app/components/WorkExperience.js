@@ -8,9 +8,9 @@ import { faBriefcase, faLocationDot, faClock } from '@fortawesome/free-solid-svg
 const WorkExperience = () => {
     const experiences = [
         {
-            company: 'Infinitely services',
+            company: 'Lama Tools',
             role: 'Founder',
-            duration: 'Sep 2024 - present',
+            duration: 'Nov 2024 - present',
             location: 'Remote',
             description: 'Technology consulting firm dedicated to empowering businesses through personalized AI tools and automation solutions.',
         },

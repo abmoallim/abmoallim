@@ -10,6 +10,13 @@ import Link from 'next/link';
 
 const blogs = [
     {
+        title: 'Reflecting on My 2024',
+        slug: 'my-2024',
+        image: '/imgs/my-2024.png',
+        readingTime: '5 min read',
+        date: 'December 11, 2024',
+    },
+    {
         title: 'OpenAI\'s Advanced Voice Mode: I tried to teach it Somali language',
         slug: 'openai-advanced-voice-model-deep-dive',
         image: '/imgs/openai.png',
