@@ -20,9 +20,10 @@ const Hero = () => {
                 </h1>
                 <h2 className="text-2xl font-light text-muted-foreground mb-4">Fullstack Developer | <span className='text-primary'>AI enthusiast</span></h2>
                 <div className="flex items-center justify-center md:justify-start space-x-2 mb-8">
-                    <Badge variant="secondary">Top Talent award winner</Badge>
-                    <span className="text-muted-foreground">at</span>
-                    <Badge variant="secondary">SIMAD iLab</Badge>
+                    <Badge variant="outline" className="italic text-sm">
+                        &ldquo;Code is like humor. When you have to explain it, it&rsquo;s bad&rdquo; 
+                        <span className="block text-xs text-right mt-1 opacity-70">- Cory House</span>
+                    </Badge>
                 </div>
                 <div className="flex space-x-4 justify-center md:justify-start">
                     <Button asChild variant="default">
