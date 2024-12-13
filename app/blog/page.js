@@ -14,7 +14,7 @@ const blogs = [
         slug: 'my-2024',
         image: '/imgs/my-2024.png',
         readingTime: '5 min read',
-        date: 'December 11, 2024',
+        date: 'December 13, 2024',
     },
     {
         title: 'OpenAI\'s Advanced Voice Mode: I tried to teach it Somali language',
