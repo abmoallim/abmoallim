@@ -18,7 +18,7 @@ const Hero = () => {
                 <h1 className="text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
                     Abdihamid Moallim
                 </h1>
-                <h2 className="text-2xl font-light text-muted-foreground mb-4">Fullstack Developer | <span className='text-primary'>AI enthusiast</span></h2>
+                <h2 className="text-2xl font-light text-muted-foreground mb-4">Software Engineer | <span className='text-primary'>AI enthusiast</span></h2>
                 <div className="flex items-center justify-center md:justify-start space-x-2 mb-8">
                     <Badge variant="outline" className="italic text-sm">
                         &ldquo;Code is like humor. When you have to explain it, it&rsquo;s bad&rdquo; 
