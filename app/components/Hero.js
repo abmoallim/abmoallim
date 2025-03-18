@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import GitHubStreak from "@/components/GitHubStreak";
 
 const Hero = () => {
     return (
@@ -25,13 +26,18 @@ const Hero = () => {
                         <span className="block text-xs text-right mt-1 opacity-70">- Cory House</span>
                     </Badge>
                 </div>
-                <div className="flex space-x-4 justify-center md:justify-start">
+                <div className="flex space-x-4 justify-center md:justify-start mb-6">
                     <Button asChild variant="default">
                         <a href="/imgs/resume.pdf" target="_blank">My Resume</a>
                     </Button>
                     <Button asChild variant="outline">
                         <a href="/contact">Contact Info</a>
                     </Button>
+                </div>
+                
+                {/* GitHub Stats */}
+                <div className="mt-6">
+                    <GitHubStreak username="abmoallim" />
                 </div>
             </div>
         </section>

@@ -21,6 +21,7 @@
     "@tailwindcss/typography": "^0.5.14",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "contribution": "^6.0.0",
     "export": "^0.1.337",
     "gh-pages": "^6.1.1",
     "gray-matter": "^4.0.3",
