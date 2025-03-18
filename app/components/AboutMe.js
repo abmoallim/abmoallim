@@ -11,7 +11,7 @@ const AboutMe = () => {
             <hr className="border-t-2 border-border mx-32 py-6" />
             <div className="container mx-auto px-6 md:px-12 lg:px-24 text-center md:text-left">
                 {/* <h2 className="text-4xl font-bold mb-8">About Me</h2> */}
-                <div className="flex flex-col md:flex-row items-center md:space-x-12">
+                <div className="flex flex-col md:flex-row items-center md:space-x-8">
                     <img 
                         src="/imgs/about-pic.png" 
                         alt="Abdihamid Moallim" 

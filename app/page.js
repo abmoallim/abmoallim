@@ -11,8 +11,8 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
-      <AboutMe/>
       <Experience/> 
+      <AboutMe/>
       <WorkExperience/>
       <Contributions/>
       {/* <Gallery/> */}

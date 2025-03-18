@@ -10,7 +10,7 @@ const WorkExperience = () => {
         {
             company: 'Lama Tools',
             role: 'Founder',
-            duration: 'Nov 2024 - present',
+            duration: 'Dec 2024 - present',
             location: 'Remote',
             description: 'Technology consulting firm dedicated to empowering businesses through personalized AI tools and automation solutions.',
         },
@@ -52,7 +52,7 @@ const WorkExperience = () => {
     ];
 
     return (
-        <section id="work-experience" className="py-16 bg-background text-foreground">
+        <section id="work-experience" className="py-8 bg-background text-foreground">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <h2 className="text-4xl font-bold text-center mb-8">Work Experience</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
