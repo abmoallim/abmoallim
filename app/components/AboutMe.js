@@ -7,7 +7,7 @@ const AboutMe = () => {
     const skills = ["Web Development", "AI", "Problem Solving", "Open Source"];
 
     return (
-        <section id="about" className="py-16 bg-background text-foreground">
+        <section id="about" className="py-8 bg-background text-foreground">
             <hr className="border-t-2 border-border mx-32 py-6" />
             <div className="container mx-auto px-6 md:px-12 lg:px-24 text-center md:text-left">
                 {/* <h2 className="text-4xl font-bold mb-8">About Me</h2> */}
