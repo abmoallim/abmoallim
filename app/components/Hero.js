@@ -9,7 +9,7 @@ import GitHubStreak from "@/components/GitHubStreak";
 
 const Hero = () => {
     return (
-        <section className="bg-background text-foreground flex flex-col md:flex-row items-center justify-center text-center md:text-left pt-36 py-28">
+        <section className="bg-background text-foreground flex flex-col md:flex-row items-center justify-center text-center md:text-left pt-36 py-24">
             <img 
                 src="/imgs/profile-pic.png" 
                 alt="Abdihamid Moallim" 
