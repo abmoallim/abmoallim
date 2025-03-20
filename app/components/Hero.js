@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import GitHubStreak from "@/components/GitHubStreak";
+import PersonalStats from "@/components/PersonalStats";
 
 const Hero = () => {
     return (
@@ -35,7 +35,7 @@ const Hero = () => {
                 
                 {/* GitHub Stats */}
                 <div className="mt-6">
-                    <GitHubStreak username="abmoallim" />
+                    <PersonalStats />
                 </div>
             </div>
         </section>
