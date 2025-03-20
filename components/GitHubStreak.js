@@ -1,86 +1,80 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faFire, faCodeCommit, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { Card } from "@/components/ui/card";
+import { Github } from 'lucide-react';
+import { Skeleton } from "@/components/ui/skeleton";
 
-const GitHubStreak = ({ username = "abmoallim" }) => {
+const GitHubStreak = ({ username }) => {
   const [loading, setLoading] = useState(true);
-  
-  // Simulate loading state for demo purposes - remove this in production
+  const [stats, setStats] = useState({
+    currentStreak: 0,
+    totalContributions: 0,
+    currentYearContributions: 0
+  });
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  if (loading) {
-    return (
-      <div className="p-4 text-center rounded-lg bg-card/50 border border-border">
-        <span className="text-muted-foreground">Loading GitHub stats...</span>
-      </div>
-    );
-  }
-  
-  // Hard-coded stats (you can update these manually)
-  const currentStreak = 12;
-  const thisYearContributions = 107;
-  const totalContributions = 1453; // Total lifetime contributions
-  const currentYear = new Date().getFullYear();
-  
+    const fetchGitHubStats = async () => {
+      try {
+        // Fetch from our backend API
+        const response = await fetch(`/api/github-stats?username=${username}`);
+        
+        if (!response.ok) {
+          throw new Error(`API returned ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        setStats({
+          currentStreak: data.currentStreak || 0,
+          totalContributions: data.totalContributions || 0,
+          currentYearContributions: data.currentYearContributions || 0
+        });
+      } catch (error) {
+        console.error('Error fetching GitHub stats:', error);
+        // Keep default values in case of error
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGitHubStats();
+  }, [username]);
+
   return (
-    <div className="p-4 rounded-lg bg-card/50 border border-border">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium flex items-center">
-          <FontAwesomeIcon icon={faGithub} className="mr-2 text-primary" />
-          GitHub Stats
-        </h3>
-        <a 
-          href={`https://github.com/${username}`}
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-xs text-primary hover:underline"
-        >
-          @{username}
-        </a>
+    <Card className="p-6 border rounded-lg shadow-sm">
+      <div className="flex items-center gap-2 mb-4">
+        <Github className="h-5 w-5" />
+        <h3 className="text-lg font-semibold">GitHub Stats</h3>
+        <span className="ml-auto text-sm text-muted-foreground">@{username}</span>
       </div>
-      
-      <div className="grid grid-cols-3 gap-2">
-        <div className="flex flex-col items-center p-3 rounded-md bg-background/80">
-          <div className="flex items-center mb-1">
-            <FontAwesomeIcon icon={faFire} className="mr-1 text-amber-500" />
-            <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">
-              {currentStreak}
-            </span>
-          </div>
-          <span className="text-xs text-muted-foreground text-center">Current Streak</span>
+
+      {loading ? (
+        <div className="flex justify-between gap-4">
+          <Skeleton className="h-16 w-24" />
+          <Skeleton className="h-16 w-24" />
+          <Skeleton className="h-16 w-24" />
         </div>
-        
-        <div className="flex flex-col items-center p-3 rounded-md bg-background/80">
-          <div className="flex items-center mb-1">
-            <FontAwesomeIcon icon={faCalendarAlt} className="mr-1 text-green-400" />
-            <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-              {thisYearContributions}
-            </span>
+      ) : (
+        <div className="flex justify-between gap-4 text-center">
+          <div className="flex flex-col items-center">
+            <span className="text-amber-500 text-2xl font-bold">{stats.currentStreak}</span>
+            <span className="text-sm text-muted-foreground">Current Streak</span>
           </div>
-          <span className="text-xs text-muted-foreground text-center">{currentYear} Contribs</span>
-        </div>
-        
-        <div className="flex flex-col items-center p-3 rounded-md bg-background/80">
-          <div className="flex items-center mb-1">
-            <FontAwesomeIcon icon={faCodeCommit} className="mr-1 text-purple-400" />
-            <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-              {totalContributions}
-            </span>
+          
+          <div className="flex flex-col items-center">
+            <span className="text-green-500 text-2xl font-bold">{stats.currentYearContributions}</span>
+            <span className="text-sm text-muted-foreground">{new Date().getFullYear()} Contribs</span>
           </div>
-          <span className="text-xs text-muted-foreground text-center">Total Contribs</span>
+          
+          <div className="flex flex-col items-center">
+            <span className="text-purple-500 text-2xl font-bold">{stats.totalContributions}</span>
+            <span className="text-sm text-muted-foreground">Total Contribs</span>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </Card>
   );
 };
 
-export default GitHubStreak; 
+export default GitHubStreak;

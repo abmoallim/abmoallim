@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 // app/components/Hero.js
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import GitHubStreak from "@/components/GitHubStreak";
