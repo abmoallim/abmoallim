@@ -24,6 +24,10 @@ const Hero = () => {
                         <span className="block text-xs text-right mt-1 opacity-70">- Cory House</span>
                     </Badge>
                 </div>
+                {/* GitHub Stats */}
+                <div className="mt-6 mb-6">
+                    <PersonalStats />
+                </div>
                 <div className="flex space-x-4 justify-center md:justify-start mb-6">
                     <Button asChild variant="default">
                         <a href="/imgs/resume.pdf" target="_blank">My Resume</a>
@@ -33,10 +37,7 @@ const Hero = () => {
                     </Button>
                 </div>
                 
-                {/* GitHub Stats */}
-                <div className="mt-6">
-                    <PersonalStats />
-                </div>
+                
             </div>
         </section>
     );
