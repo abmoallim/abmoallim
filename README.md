@@ -1,10 +1,9 @@
-![Profile Picture](https://media.licdn.com/dms/image/D4E22AQGDkhu-fq3Rrg/feedshare-shrink_800/0/1684790383807?e=2147483647&v=beta&t=uGek_7_SYbDDZoAnUEJHqUuZGQeWwLnqbMMngSn4NIo)
+<!-- ![Profile Picture](https://media.licdn.com/dms/image/D4E22AQGDkhu-fq3Rrg/feedshare-shrink_800/0/1684790383807?e=2147483647&v=beta&t=uGek_7_SYbDDZoAnUEJHqUuZGQeWwLnqbMMngSn4NIo) -->
+[![GitHub Streak](https://streak-stats.demolab.com?user=abmoallim&theme=dark)](https://git.io/streak-stats)
 
 ## About Me
 
-Hello! I'm Abdihamid Moallim, a Fullstack Developer passionate about web technologies and AI. With a background in software engineering, I've developed a deep understanding of both front-end and back-end technologies. My journey started with a curiosity for coding, and it has since evolved into a dedicated career in software development.
-
-I thrive on creating meaningful web experiences that solve real-world problems. When I'm not coding, you can find me exploring the latest trends in technology, contributing to open-source projects, or sharing knowledge with the community. I'm always eager to learn and take on new challenges.
+Hello! I'm Abdihamid Moallim, a Fullstack Developer.
 
 ## Projects
 ```bash
