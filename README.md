@@ -1,5 +1,5 @@
 <!-- ![Profile Picture](https://media.licdn.com/dms/image/D4E22AQGDkhu-fq3Rrg/feedshare-shrink_800/0/1684790383807?e=2147483647&v=beta&t=uGek_7_SYbDDZoAnUEJHqUuZGQeWwLnqbMMngSn4NIo) -->
-[![GitHub Streak](https://streak-stats.demolab.com?user=abmoallim&theme=dark)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=abmoallim&theme=dark&hide_longest_streak=true)](https://git.io/streak-stats)
 
 ## About Me
 
