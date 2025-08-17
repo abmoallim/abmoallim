@@ -10,6 +10,13 @@ import Link from 'next/link';
 
 const blogs = [
     {
+        title: 'I Loved Cursor Pro Until the Credits Changed',
+        slug: 'i-loved-cursor-pro-until-the-credits-changed',
+        image: '/imgs/I-loved-cursor.png',
+        readingTime: '7 min read',
+        date: 'August 17, 2025',
+    },
+    {
         title: 'Reflecting on My 2024',
         slug: 'my-2024',
         image: '/imgs/my-2024.png',

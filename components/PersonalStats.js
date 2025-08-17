@@ -16,7 +16,7 @@ const PersonalStats = () => {
   // Animate counting up
   useEffect(() => {
     const targetStats = {
-      projectsCompleted: 70,
+      projectsCompleted: 80,
       yearsExperience: 4,
       clientsSatisfied: 50,
       gitRepos: 79
