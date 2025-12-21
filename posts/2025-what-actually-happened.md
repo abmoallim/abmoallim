@@ -1,7 +1,7 @@
 ---
 title: "2025: What Actually Happened"
 date: "2025-12-21"
-readingTime: "6 min read"
+readingTime: "3 min read"
 ---
 
 # 2025: What Actually Happened
