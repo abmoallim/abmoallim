@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Github, 
-  ExternalLink, 
-  LockKeyhole, 
+import {
+  Github,
+  ExternalLink,
   AlertCircle,
   InfoIcon,
-  X
+  X,
+  FolderOpen,
+  FolderGit2
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from 'next/image';
@@ -170,62 +171,75 @@ const Projects = () => {
 };
 
 const ProjectList = ({ projects }) => (
-    <div className="space-y-8">
+    <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
         {projects.map((project, index) => (
             <ProjectListCard key={index} project={project} />
         ))}
     </div>
 );
 
-const ProjectListCard = ({ project }) => (
-    <Card className="transition-shadow hover:shadow-lg hover:shadow-primary/25 dark:hover:shadow-primary/20">
-        <CardContent className="p-6">
-            <div className="flex flex-col md:flex-row items-center">
-                <div className="md:w-2/3 md:pr-6">
-                    <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-2xl font-semibold">{project.title}</h3>
-                        {project.type === 'github' ? (
-                            <Github className="h-5 w-5 text-muted-foreground" />
-                        ) : (
-                            <ExternalLink className="h-5 w-5 text-muted-foreground" />
-                        )}
+const ProjectListCard = ({ project }) => {
+    const isGithub = project.type === 'github';
+    const typeLabel = isGithub ? 'Repository' : 'Live Site';
+
+    return (
+        <div className="group relative">
+            <div className="absolute -top-5 left-6 flex items-center gap-2 rounded-t-2xl bg-primary px-4 py-2 text-primary-foreground shadow-lg shadow-primary/30">
+                {isGithub ? (
+                    <FolderGit2 className="h-4 w-4" />
+                ) : (
+                    <FolderOpen className="h-4 w-4" />
+                )}
+                <span className="text-xs font-semibold uppercase tracking-wide">{typeLabel}</span>
+            </div>
+            <Card className="h-full rounded-3xl border border-border/70 bg-card/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
+                <CardContent className="flex h-full flex-col gap-6 p-6 pt-10">
+                    <div>
+                        <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
                     </div>
-                    <p className="text-muted-foreground mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+
+                    <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, techIndex) => (
-                            <Badge key={techIndex} variant="secondary">{tech}</Badge>
+                            <Badge key={techIndex} variant="secondary" className="bg-primary/10 text-primary">
+                                {tech}
+                            </Badge>
                         ))}
                     </div>
-                    <Button asChild variant="default">
+
+                    <div className="relative mt-auto h-40 w-full overflow-hidden rounded-2xl border border-border/60 bg-muted/40">
+                        <Image
+                            src={project.image}
+                            alt={`${project.title} screenshot`}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                    </div>
+
+                    <Button
+                        asChild
+                        variant="secondary"
+                        className="mt-2 w-full justify-center gap-2 border border-primary/40 bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                    >
                         <a href={project.link} target="_blank" rel="noopener noreferrer">
-                            {project.type === 'github' ? (
+                            {isGithub ? (
                                 <>
-                                    <Github className="mr-2 h-4 w-4" />
+                                    <Github className="h-4 w-4" />
                                     View on GitHub
                                 </>
                             ) : (
                                 <>
-                                    <ExternalLink className="mr-2 h-4 w-4" />
-                                    View Project
+                                    <ExternalLink className="h-4 w-4" />
+                                    Visit Project
                                 </>
                             )}
                         </a>
                     </Button>
-                </div>
-                <div className="md:w-1/3 mt-4 md:mt-0">
-                    <div className="relative h-48 w-full overflow-hidden rounded-lg">
-                        <Image 
-                            src={project.image} 
-                            alt={`${project.title} screenshot`} 
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                    </div>
-                </div>
-            </div>
-        </CardContent>
-    </Card>
-);
+                </CardContent>
+            </Card>
+        </div>
+    );
+};
 
 export default Projects;
