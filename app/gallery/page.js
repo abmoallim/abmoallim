@@ -1,5 +1,6 @@
-// app/gallery/page.js
+// app/gallery/page.js — image bank, cockpit-framed.
 import Image from 'next/image';
+import HudPanel from '../components/cockpit/HudPanel';
 
 const images = [
     { src: '/imgs/about-pic.png', alt: 'Gallery Image 1' },
@@ -12,24 +13,26 @@ const images = [
 
 const FullGallery = () => {
     return (
-        <section className="py-16 pt-32 bg-white dark:bg-gray-800 text-black dark:text-white">
-            <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-4xl font-bold text-center dark:text-slate-300 text-gray-900 mb-8">Full Gallery</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <main className="mx-auto max-w-6xl px-3 pb-8 pt-20 sm:px-6">
+            <HudPanel title="IMAGERY BANK — FULL GALLERY" right={`${images.length} FRAMES`}>
+                <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
                     {images.map((image, index) => (
-                        <div key={index} className="relative">
+                        <div key={index} className="relative border border-ctp-surface1/70">
                             <Image
                                 src={image.src}
                                 alt={image.alt}
                                 width={300}
                                 height={300}
-                                className="object-cover rounded-lg"
+                                className="object-cover"
                             />
+                            <span className="absolute bottom-1 left-1 bg-ctp-crust/80 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-hud">
+                                IMG {String(index + 1).padStart(2, '0')}
+                            </span>
                         </div>
                     ))}
                 </div>
-            </div>
-        </section>
+            </HudPanel>
+        </main>
     );
 };
 

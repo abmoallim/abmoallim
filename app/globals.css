@@ -2,60 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Catppuccin Mocha base with CRT-phosphor HUD accents.
+   --hud is the primary phosphor (green by default); the console's
+   `theme green|amber|mauve` command swaps it via data-hud on <html>. */
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+  :root,
+  .dark {
+    --background: 240 21% 15%;
+    --foreground: 226 64% 88%;
+    --card: 237 16% 23%;
+    --card-foreground: 226 64% 88%;
+    --popover: 240 21% 12%;
+    --popover-foreground: 226 64% 88%;
+    --primary: 115 54% 76%;
+    --primary-foreground: 240 21% 12%;
+    --secondary: 234 13% 31%;
+    --secondary-foreground: 226 64% 88%;
+    --muted: 237 16% 23%;
+    --muted-foreground: 228 24% 72%;
+    --accent: 234 13% 31%;
+    --accent-foreground: 226 64% 88%;
+    --destructive: 343 81% 75%;
+    --destructive-foreground: 240 21% 12%;
+    --border: 234 13% 31%;
+    --input: 234 13% 31%;
+    --ring: 115 54% 76%;
+    --radius: 0.375rem;
+    --chart-1: 115 54% 76%;
+    --chart-2: 23 92% 75%;
+    --chart-3: 170 57% 73%;
+    --chart-4: 267 84% 81%;
+    --chart-5: 189 71% 73%;
+
+    /* phosphor accents as raw RGB for alpha composition */
+    --hud: 166 227 161;   /* green */
+    --hud2: 250 179 135;  /* amber */
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+  :root[data-hud='amber'] {
+    --hud: 250 179 135;
+    --hud2: 166 227 161;
+  }
+
+  :root[data-hud='mauve'] {
+    --hud: 203 166 247;
+    --hud2: 148 226 213;
   }
 }
 
@@ -64,239 +55,162 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  code, kbd, samp, pre {
+    @apply font-mono;
   }
 }
 
-/* Aviation-themed custom animations */
-@layer utilities {
-  /* Floating animation for aviation elements */
-  @keyframes float-slow {
-    0%, 100% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-      transform: translateY(-10px) rotate(2deg);
-    }
-    50% {
-      transform: translateY(-5px) rotate(-1deg);
-    }
-    75% {
-      transform: translateY(-15px) rotate(1deg);
-    }
-  }
-
-  /* Flying animations for section dividers */
-  @keyframes fly-right {
-    0% {
-      transform: translateX(-100px) rotate(45deg);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(100px) rotate(45deg);
-      opacity: 0;
-    }
-  }
-
-  @keyframes fly-left {
-    0% {
-      transform: translateX(100px) rotate(-45deg);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-100px) rotate(-45deg);
-      opacity: 0;
-    }
-  }
-
-  /* Slow pulse for background elements */
-  @keyframes pulse-slow {
-    0%, 100% {
-      opacity: 0.3;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.6;
-      transform: scale(1.05);
-    }
-  }
-
-  /* Cockpit-inspired glow effect */
-  @keyframes cockpit-glow {
-    0%, 100% {
-      box-shadow: 0 0 5px rgba(34, 197, 94, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 20px rgba(34, 197, 94, 0.6), 0 0 30px rgba(34, 197, 94, 0.3);
-    }
-  }
-
-  /* Radar sweep animation */
-  @keyframes radar-sweep {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* Apply animations */
-  .animate-float-slow {
-    animation: float-slow 20s ease-in-out infinite;
-  }
-
-  .animate-fly-right {
-    animation: fly-right 8s ease-in-out infinite;
-  }
-
-  .animate-fly-left {
-    animation: fly-left 8s ease-in-out infinite;
-  }
-
-  .animate-pulse-slow {
-    animation: pulse-slow 4s ease-in-out infinite;
-  }
-
-  .animate-cockpit-glow {
-    animation: cockpit-glow 3s ease-in-out infinite;
-  }
-
-  .animate-radar-sweep {
-    animation: radar-sweep 10s linear infinite;
-  }
-
-  /* Modern glass morphism effects */
-  .glass-morphism {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .dark .glass-morphism {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  /* Aviation-inspired gradient text */
-  .aviation-gradient {
-    background: linear-gradient(135deg, #22c55e 0%, #3b82f6 50%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Cockpit-style borders */
-  .cockpit-border {
-    position: relative;
-  }
-
-  .cockpit-border::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    bottom: -1px;
-    background: linear-gradient(45deg, transparent, rgba(34, 197, 94, 0.3), transparent);
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  /* Enhanced hover effects */
-  .aviation-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .aviation-hover:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Modern section transitions */
-  .section-transition {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .section-transition::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s ease-in-out;
-  }
-
-  .section-transition:hover::before {
-    left: 100%;
+/* Visible keyboard focus everywhere, phosphor-tinted */
+@layer base {
+  :focus-visible {
+    outline: 2px solid rgb(var(--hud));
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 
-/* Responsive typography improvements */
+/* Typography (h2 border removed — HUD panels frame their own headers) */
 @layer base {
   h1 {
     @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
   }
-
   h2 {
-    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
+    @apply scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0;
   }
-
   h3 {
     @apply scroll-m-20 text-2xl font-semibold tracking-tight;
   }
-
   h4 {
     @apply scroll-m-20 text-xl font-semibold tracking-tight;
   }
-
-  p {
-    @apply leading-7 [&:not(:first-child)]:mt-6;
-  }
-
   blockquote {
     @apply mt-6 border-l-2 pl-6 italic;
   }
 }
 
-/* Custom scrollbar for modern look */
+/* Cockpit / CRT motion + chrome */
 @layer utilities {
-  .custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(34, 197, 94, 0.3) transparent;
+  @keyframes radar-sweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
+  @keyframes blip-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+
+  @keyframes status-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  @keyframes cursor-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  @keyframes grid-pulse {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes wpt-flash {
+    0%, 100% { background-color: transparent; }
+    30% { background-color: rgb(var(--hud) / 0.12); }
+  }
+
+  .animate-radar-sweep { animation: radar-sweep 6s linear infinite; }
+  .animate-blip { animation: blip-pulse 2.4s ease-in-out infinite; }
+  .animate-status-pulse { animation: status-pulse 2s ease-in-out infinite; }
+  .animate-cursor-blink { animation: cursor-blink 1s step-end infinite; }
+  .animate-grid-pulse { animation: grid-pulse 9s ease-in-out infinite; }
+  .animate-wpt-flash { animation: wpt-flash 1.6s ease-out 1; }
+
+  /* Phosphor glow for HUD text and strokes */
+  .hud-glow {
+    text-shadow: 0 0 10px rgb(var(--hud) / 0.5);
+  }
+  .hud2-glow {
+    text-shadow: 0 0 10px rgb(var(--hud2) / 0.5);
+  }
+
+  /* Amber-tinted CRT scrollbar */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--hud) / 0.35) transparent;
+  }
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
   }
-
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
   }
-
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgba(34, 197, 94, 0.3);
+    background: rgb(var(--hud) / 0.35);
     border-radius: 3px;
   }
-
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgba(34, 197, 94, 0.5);
+    background: rgb(var(--hud) / 0.55);
   }
 }
 
-/* Print styles */
+/* CRT scanline + vignette overlay — sits above everything, no pointer events.
+   The console's `crt off` command sets data-crt="off" on <html>. */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(17, 17, 27, 0) 0px,
+    rgba(17, 17, 27, 0) 2px,
+    rgba(17, 17, 27, 0.16) 2px,
+    rgba(17, 17, 27, 0.16) 3px
+  );
+}
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(17, 17, 27, 0.5) 100%);
+}
+:root[data-crt='off'] .crt-overlay,
+:root[data-crt='off'] .crt-vignette {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #181825;
+}
+::-webkit-scrollbar-thumb {
+  background: #45475a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #585b70;
+}
+
+/* Reduced motion: freeze sweeps, blinks, needle animation, boot typing */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media print {
   .no-print {
     display: none !important;
   }
 }
-

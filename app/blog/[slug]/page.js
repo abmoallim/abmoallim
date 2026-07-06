@@ -1,12 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faClock } from '@fortawesome/free-solid-svg-icons';
+import HudPanel from '../../components/cockpit/HudPanel';
 
 export async function generateStaticParams() {
     const files = fs.readdirSync(path.join('posts'));
@@ -26,40 +24,33 @@ export default async function BlogPostPage({ params }) {
     const { content, data } = matter(fileContents);
 
     return (
-        <section className="pt-32 py-16 bg-background text-foreground">
-            <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <Card className="mb-8">
-                    <CardContent className="p-6">
-                        <h1 className="text-4xl font-bold text-center mb-4">
-                            {data.title}
-                        </h1>
-                        <div className="flex justify-center items-center space-x-4 mb-8">
-                            <Badge variant="secondary" className="flex items-center">
-                                <FontAwesomeIcon icon={faCalendar} className="w-4 h-4 mr-2" />
-                                {data.date}
-                            </Badge>
-                            <Badge variant="secondary" className="flex items-center">
-                                <FontAwesomeIcon icon={faClock} className="w-4 h-4 mr-2" />
-                                {data.readingTime}
-                            </Badge>
-                        </div>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardContent className="p-6">
-                        <article className="prose dark:prose-invert max-w-none">
-                            <MDXRemote
-                                source={content}
-                                options={{
-                                    mdxOptions: {
-                                        remarkPlugins: [remarkGfm],
-                                    },
-                                }}
-                            />
-                        </article>
-                    </CardContent>
-                </Card>
-            </div>
-        </section>
+        <main className="mx-auto max-w-4xl space-y-6 px-3 pb-8 pt-20 sm:px-6">
+            <Link
+                href="/blog"
+                className="inline-block font-mono text-[11px] uppercase tracking-[0.25em] text-ctp-overlay0 transition-colors hover:text-hud"
+            >
+                ◂ RETURN TO ARCHIVE
+            </Link>
+
+            <HudPanel
+                title="DECODED TRANSMISSION"
+                right={`${(data.date || '').toUpperCase()} · ${(data.readingTime || '').toUpperCase()}`}
+            >
+                <h1 className="font-mono text-2xl font-bold leading-tight text-ctp-text hud-glow sm:text-3xl">
+                    {data.title}
+                </h1>
+
+                <article className="prose prose-invert mt-6 max-w-none prose-headings:font-mono prose-a:text-ctp-sapphire prose-strong:text-ctp-text prose-code:text-hud">
+                    <MDXRemote
+                        source={content}
+                        options={{
+                            mdxOptions: {
+                                remarkPlugins: [remarkGfm],
+                            },
+                        }}
+                    />
+                </article>
+            </HudPanel>
+        </main>
     );
 }

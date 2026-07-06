@@ -1,245 +1,192 @@
 'use client';
-
-import { useState, useEffect } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Github,
-  ExternalLink,
-  AlertCircle,
-  InfoIcon,
-  X,
-  FolderOpen,
-  FolderGit2
-} from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// Projects as a flight plan: waypoint rows, expandable detail, console-driven
+// filter (`projects --live`) and selection (`select <n|name>`).
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { Github, ExternalLink, TriangleAlert, ChevronDown } from 'lucide-react';
+import { projects, projectSlug } from '@/lib/projects';
+import { onConsole } from '@/lib/consoleBus';
+import HudPanel from '../components/cockpit/HudPanel';
 
-const projects = [
-    {
-        title: 'Internsim',
-        description: 'A platform offering personalized, story-driven internship simulations to elevate skills with AI-generated tasks and real-world scenarios.',
-        technologies: ['Next.js', 'Vercel', 'AI'],
-        link: 'https://internsim.vercel.app/',
-        image: '/imgs/internsim.png',
-        type: 'open'
-    },
-    {
-        title: 'InterviewWay',
-        description: 'A platform helping users prepare for interviews and assessments, providing tailored resources and practice tools.',
-        technologies: ['Next.js', 'Tailwind CSS', 'PostgreSQL', 'FastAPI'],
-        link: 'https://interviewway.com',
-        image: '/imgs/inter.png',
-        type: 'open'
-    },
-    {
-        title: 'Scraper',
-        description: 'A web scraping tool designed to extract valuable data from websites efficiently.',
-        technologies: ['Next.js', 'Node.js', 'Python', 'Tailwind CSS', 'Playwright'],
-        link: 'https://github.com/abmoallim/scraper',
-        image: '/imgs/scraper.png',
-        type: 'github'
-    },
-    {
-        title: 'Flashcard SaaS',
-        description: 'A SaaS platform integrating OpenAI and Stripe to create customizable flashcards for educational purposes.',
-        technologies: ['React', 'Node.js', 'Stripe API', 'OpenAI API'],
-        link: 'https://github.com/muhaksim/flashkards',
-        image: '/imgs/flash.png',
-        type: 'github'
-    },
-    {
-        title: 'Inventory Management System',
-        description: 'A fun, gamified, colorful, and clean inventory management system with animations and a focus on user experience.',
-        technologies: ['PostgreSQL', 'React', 'Node.js', 'Tailwind CSS'],
-        link: 'https://github.com/abmoallim/inventory-management-system',
-        image: '/imgs/inventory.png',
-        type: 'github'
-    },
-    {
-        title: 'Express Therapy',
-        description: 'A gamified speech and language therapy service for children and young people, aimed at making therapy engaging and fun.',
-        technologies: ['WordPress'],
-        link: 'https://express-therapy.com',
-        image: '/imgs/express.png',
-        type: 'open'
-    },
-    {
-        title: 'Target LED',
-        description: 'A comprehensive solution for managing Ads displayed on LED screens, involving full web development, mobile apps, APIs, dashboards, and IoT integration.',
-        technologies: ['HTML', 'Bootstrap', 'JavaScript', 'Ajax', 'jQuery', 'Flutter', 'Node.js', 'Flask', 'Next.js', 'IoT'],
-        link: 'https://github.com/orgs/Target-so/',
-        image: '/imgs/about-pic.png',
-        type: 'github'
-    },
-    {
-        title: 'Rays Initiative',
-        description: 'A website built with WordPress to support the Rays Initiative, focused on empowering communities through education and development.',
-        technologies: ['WordPress'],
-        link: 'https://raysinitiative.org/',
-        image: '/imgs/rays.png',
-        type: 'open'
-    },
+const FILTERS = [
+    { key: 'all', label: 'ALL' },
+    { key: 'open', label: 'LIVE' },
+    { key: 'github', label: 'REPO' },
 ];
 
-// Toast component for Sonner-like notifications
-const Toast = ({ message, title, onClose }) => (
-  <div className="fixed top-4 right-4 z-50 animate-in fade-in slide-in-from-top-5 duration-300">
-    <div className="bg-card border rounded-lg shadow-lg p-4 w-80 flex gap-3">
-      <AlertCircle className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5" />
-      <div className="flex-1">
-        <div className="font-medium mb-1">{title}</div>
-        <div className="text-sm text-muted-foreground">{message}</div>
-      </div>
-      <button 
-        onClick={onClose}
-        className="text-muted-foreground hover:text-foreground flex-shrink-0"
-      >
-        <X className="h-4 w-4" />
-      </button>
-    </div>
-  </div>
-);
+const normalizeFilter = (value) =>
+    value === 'open' || value === 'live' ? 'open' : value === 'github' || value === 'repo' ? 'github' : 'all';
 
-const Projects = () => {
-    const [showToast, setShowToast] = useState(true);
-    
-    // Hide toast after 5 seconds
+export default function Projects() {
+    const [filter, setFilter] = useState('all');
+    const [selected, setSelected] = useState(null);
+    const [flash, setFlash] = useState(null);
+    const rowRefs = useRef({});
+
+    // initial state from URL (?filter=…&select=…) — console navigations land here
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowToast(false);
-        }, 5000);
-        
-        return () => clearTimeout(timer);
-    }, [showToast]);
+        const params = new URLSearchParams(window.location.search);
+        const f = params.get('filter');
+        const s = params.get('select');
+        if (f) setFilter(normalizeFilter(f));
+        if (s) setSelected(s);
+    }, []);
+
+    // live console control while on this page
+    useEffect(() => onConsole('projects.filter', ({ type }) => {
+        setFilter(normalizeFilter(type));
+    }), []);
+    useEffect(() => onConsole('projects.select', ({ slug }) => {
+        setFilter('all');
+        setSelected(slug);
+    }), []);
+
+    // when a waypoint gets locked, scroll to it and flash the row
+    useEffect(() => {
+        if (!selected) return;
+        const el = rowRefs.current[selected];
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setFlash(selected);
+            const t = setTimeout(() => setFlash(null), 1700);
+            return () => clearTimeout(t);
+        }
+    }, [selected]);
+
+    const visible = filter === 'all' ? projects : projects.filter((p) => p.type === filter);
 
     return (
-        <section id="projects" className="pt-32 py-16 bg-background text-foreground">
-            {/* Sonner-like Toast */}
-            {showToast && (
-                <Toast 
-                    title="Most projects are private"
-                    message="Many of my projects were developed for clients under NDAs and can't be publicly displayed. The projects shown here represent only a portion of my work."
-                    onClose={() => setShowToast(false)}
-                />
-            )}
-            
-            <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold mb-4">My Projects</h2>
-                    <div className="flex items-center justify-center gap-2">
-                        <p className="text-muted-foreground max-w-2xl">
-                            A collection of my public work. Check out what I&apos;ve been building.
-                        </p>
-                        <Button 
-                            variant="ghost" 
-                            size="icon" 
-                            className="rounded-full h-8 w-8 text-muted-foreground hover:text-foreground"
-                            onClick={() => setShowToast(true)}
-                        >
-                            <InfoIcon className="h-4 w-4" />
-                        </Button>
+        <main className="mx-auto max-w-6xl space-y-6 px-3 pb-8 pt-20 sm:px-6">
+            <div className="flex items-start gap-3 border border-hud2/40 bg-hud2/5 px-4 py-3">
+                <TriangleAlert className="mt-0.5 h-4 w-4 shrink-0 text-hud2" />
+                <div>
+                    <div className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-hud2 hud2-glow">
+                        ADVISORY — MOST PROJECTS ARE PRIVATE
                     </div>
+                    <p className="mt-1 text-sm text-ctp-subtext0">
+                        Many of my projects were developed for clients under NDAs and can&apos;t be publicly displayed.
+                        The projects shown here represent only a portion of my work.
+                    </p>
                 </div>
-                
-                {/* Project Filtering */}
-                <Tabs defaultValue="all" className="mb-10">
-                    <div className="flex justify-center">
-                        <TabsList className="grid w-full max-w-md grid-cols-3">
-                            <TabsTrigger value="all">All Projects</TabsTrigger>
-                            <TabsTrigger value="open">Live Sites</TabsTrigger>
-                            <TabsTrigger value="github">Open Source</TabsTrigger>
-                        </TabsList>
-                    </div>
-                    
-                    <TabsContent value="all" className="mt-8">
-                        <ProjectList projects={projects} />
-                    </TabsContent>
-                    
-                    <TabsContent value="open" className="mt-8">
-                        <ProjectList projects={projects.filter(p => p.type === 'open')} />
-                    </TabsContent>
-                    
-                    <TabsContent value="github" className="mt-8">
-                        <ProjectList projects={projects.filter(p => p.type === 'github')} />
-                    </TabsContent>
-                </Tabs>
             </div>
-        </section>
-    );
-};
 
-const ProjectList = ({ projects }) => (
-    <div className="grid gap-10 sm:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project, index) => (
-            <ProjectListCard key={index} project={project} />
-        ))}
-    </div>
-);
-
-const ProjectListCard = ({ project }) => {
-    const isGithub = project.type === 'github';
-    const typeLabel = isGithub ? 'Repository' : 'Live Site';
-
-    return (
-        <div className="group relative">
-            <div className="absolute -top-5 left-6 flex items-center gap-2 rounded-t-2xl bg-primary px-4 py-2 text-primary-foreground shadow-lg shadow-primary/30">
-                {isGithub ? (
-                    <FolderGit2 className="h-4 w-4" />
-                ) : (
-                    <FolderOpen className="h-4 w-4" />
-                )}
-                <span className="text-xs font-semibold uppercase tracking-wide">{typeLabel}</span>
-            </div>
-            <Card className="h-full rounded-3xl border border-border/70 bg-card/80 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20">
-                <CardContent className="flex h-full flex-col gap-6 p-6 pt-10">
-                    <div>
-                        <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, techIndex) => (
-                            <Badge key={techIndex} variant="secondary" className="bg-primary/10 text-primary">
-                                {tech}
-                            </Badge>
+            <HudPanel
+                title="FLIGHT PLAN — PROJECT WAYPOINTS"
+                right={`${visible.length} WPTS · ${filter.toUpperCase()}`}
+                bodyClassName="p-0 sm:p-0"
+            >
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ctp-surface1/60 px-4 py-3 sm:px-6">
+                    <div className="flex gap-2" role="group" aria-label="Filter waypoints">
+                        {FILTERS.map((f) => (
+                            <button
+                                key={f.key}
+                                type="button"
+                                onClick={() => setFilter(f.key)}
+                                className={`border px-4 py-1.5 font-mono text-xs tracking-[0.2em] transition-colors ${
+                                    filter === f.key
+                                        ? 'border-hud/60 bg-hud/10 text-hud hud-glow'
+                                        : 'border-ctp-surface1 text-ctp-subtext0 hover:border-hud/40 hover:text-hud'
+                                }`}
+                            >
+                                {f.label}
+                            </button>
                         ))}
                     </div>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ctp-overlay0">
+                        console: projects --live · select &lt;n&gt;
+                    </span>
+                </div>
 
-                    <div className="relative mt-auto h-40 w-full overflow-hidden rounded-2xl border border-border/60 bg-muted/40">
-                        <Image
-                            src={project.image}
-                            alt={`${project.title} screenshot`}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                    </div>
+                <ol>
+                    {visible.map((project) => {
+                        const slug = projectSlug(project.title);
+                        const wptNumber = projects.indexOf(project) + 1;
+                        const isOpen = selected === slug;
+                        const isRepo = project.type === 'github';
+                        return (
+                            <li
+                                key={slug}
+                                id={`wpt-${slug}`}
+                                ref={(el) => (rowRefs.current[slug] = el)}
+                                className={`border-b border-ctp-surface0/60 last:border-b-0 ${flash === slug ? 'animate-wpt-flash' : ''}`}
+                            >
+                                <button
+                                    type="button"
+                                    onClick={() => setSelected(isOpen ? null : slug)}
+                                    aria-expanded={isOpen}
+                                    className="grid w-full grid-cols-[auto,1fr,auto] items-center gap-x-3 px-4 py-3.5 text-left transition-colors hover:bg-hud/5 sm:grid-cols-[auto,1fr,auto,auto] sm:gap-x-5 sm:px-6"
+                                >
+                                    <span className="font-mono text-xs tracking-[0.2em] text-ctp-overlay0">
+                                        WPT{String(wptNumber).padStart(2, '0')}
+                                    </span>
+                                    <span className="min-w-0">
+                                        <span className={`block truncate font-mono text-sm font-semibold sm:text-base ${isOpen ? 'text-hud hud-glow' : 'text-ctp-text'}`}>
+                                            {project.title}
+                                        </span>
+                                        <span className="block truncate font-mono text-[11px] text-ctp-overlay0 sm:hidden">
+                                            {project.technologies.slice(0, 3).join(' · ')}
+                                        </span>
+                                    </span>
+                                    <span className="hidden max-w-[16rem] truncate font-mono text-[11px] text-ctp-overlay0 sm:block">
+                                        {project.technologies.slice(0, 3).join(' · ')}
+                                        {project.technologies.length > 3 && ` +${project.technologies.length - 3}`}
+                                    </span>
+                                    <span className="flex items-center gap-3">
+                                        <span
+                                            className={`border px-2 py-0.5 font-mono text-[10px] tracking-[0.2em] ${
+                                                isRepo
+                                                    ? 'border-hud2/50 bg-hud2/10 text-hud2'
+                                                    : 'border-hud/50 bg-hud/10 text-hud'
+                                            }`}
+                                        >
+                                            {isRepo ? 'REPO' : 'LIVE'}
+                                        </span>
+                                        <ChevronDown
+                                            className={`h-4 w-4 text-ctp-overlay0 transition-transform ${isOpen ? 'rotate-180 text-hud' : ''}`}
+                                        />
+                                    </span>
+                                </button>
 
-                    <Button
-                        asChild
-                        variant="secondary"
-                        className="mt-2 w-full justify-center gap-2 border border-primary/40 bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-                    >
-                        <a href={project.link} target="_blank" rel="noopener noreferrer">
-                            {isGithub ? (
-                                <>
-                                    <Github className="h-4 w-4" />
-                                    View on GitHub
-                                </>
-                            ) : (
-                                <>
-                                    <ExternalLink className="h-4 w-4" />
-                                    Visit Project
-                                </>
-                            )}
-                        </a>
-                    </Button>
-                </CardContent>
-            </Card>
-        </div>
+                                {isOpen && (
+                                    <div className="grid gap-5 border-t border-ctp-surface0/60 bg-ctp-crust/40 px-4 py-5 sm:px-6 md:grid-cols-[280px,1fr]">
+                                        <div className="relative h-40 w-full overflow-hidden border border-ctp-surface1/70 md:h-44">
+                                            <Image
+                                                src={project.image}
+                                                alt={`${project.title} screenshot`}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 768px) 100vw, 280px"
+                                            />
+                                        </div>
+                                        <div className="flex flex-col gap-4">
+                                            <p className="text-sm leading-relaxed text-ctp-subtext1">{project.description}</p>
+                                            <div className="flex flex-wrap gap-1.5">
+                                                {project.technologies.map((tech) => (
+                                                    <span key={tech} className="border border-ctp-surface1 bg-ctp-surface0/50 px-2 py-0.5 font-mono text-[11px] text-ctp-subtext0">
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <div className="mt-auto flex flex-wrap items-center gap-4">
+                                                <a
+                                                    href={project.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 border border-hud/60 bg-hud/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] text-hud transition-colors hover:bg-hud hover:text-ctp-crust"
+                                                >
+                                                    {isRepo ? <Github className="h-4 w-4" /> : <ExternalLink className="h-4 w-4" />}
+                                                    {isRepo ? 'View on GitHub' : 'Visit Project'}
+                                                </a>
+                                                <span className="truncate font-mono text-[11px] text-ctp-overlay0">{project.link}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </li>
+                        );
+                    })}
+                </ol>
+            </HudPanel>
+        </main>
     );
-};
-
-export default Projects;
+}
