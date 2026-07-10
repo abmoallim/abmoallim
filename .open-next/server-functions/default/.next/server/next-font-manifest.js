@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/abmoallim/Documents/abmoallim/app/layout":["static/media/e4af272ccee01ff0-s.p.woff2","static/media/bb3ef058b751a6ad-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/abmoallim/Documents/abmoallim/app/layout":["static/media/46bdd75a3ff56824-s.p.woff2","static/media/e4af272ccee01ff0-s.p.woff2","static/media/bb3ef058b751a6ad-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
