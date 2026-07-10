@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/gallery/page": "app/gallery/page.js",
+  "/icon.png/route": "app/icon.png/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
+  "/projects/page": "app/projects/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js"
+}

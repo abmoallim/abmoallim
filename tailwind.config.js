@@ -11,10 +11,7 @@ module.exports = {
   		fontFamily: {
   			sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
   			mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-  		},
-  		backgroundImage: {
-  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+  			hand: ['var(--font-hand)', 'cursive'],
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -22,35 +19,9 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			hud: 'rgb(var(--hud) / <alpha-value>)',
-  			hud2: 'rgb(var(--hud2) / <alpha-value>)',
-  			ctp: {
-  				base: '#1e1e2e',
-  				mantle: '#181825',
-  				crust: '#11111b',
-  				text: '#cdd6f4',
-  				subtext1: '#bac2de',
-  				subtext0: '#a6adc8',
-  				overlay2: '#9399b2',
-  				overlay1: '#7f849c',
-  				overlay0: '#6c7086',
-  				surface2: '#585b70',
-  				surface1: '#45475a',
-  				surface0: '#313244',
-  				mauve: '#cba6f7',
-  				teal: '#94e2d5',
-  				peach: '#fab387',
-  				sky: '#89dceb',
-  				sapphire: '#74c7ec',
-  				lavender: '#b4befe',
-  				green: '#a6e3a1',
-  				red: '#f38ba8',
-  				maroon: '#eba0ac',
-  				yellow: '#f9e2af',
-  				pink: '#f5c2e7',
-  				flamingo: '#f2cdcd',
-  				rosewater: '#f5e0dc',
-  			},
+  			ink: 'rgb(var(--ink) / <alpha-value>)',
+  			clay: 'rgb(var(--clay) / <alpha-value>)',
+  			cream: 'rgb(var(--cream) / <alpha-value>)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

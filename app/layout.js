@@ -1,25 +1,23 @@
 // app/layout.js
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
+const caveat = Caveat({ subsets: ["latin"], variable: "--font-hand", display: "swap", weight: ["500", "600", "700"] });
 
-import StatusBar from "./components/cockpit/StatusBar";
-import FooterStrip from "./components/cockpit/FooterStrip";
-import CockpitBackground from "./components/cockpit/CockpitBackground";
-import Scanlines from "./components/cockpit/Scanlines";
-import CommandConsole from "./components/console/CommandConsole";
+import Nav from "./components/nav/Nav";
+import Footer from "./components/Footer";
 import Script from "next/script";
 
 export const metadata = {
-  title: "abmoallim",
-  description: "Personal Portfolio of Abdihamid Moallim",
+  title: "Abdihamid Moallim",
+  description: "Software engineer. Building web apps, internal tools, and AI-backed products.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${caveat.variable}`}>
       <head>
         <Script
           async
@@ -35,15 +33,11 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <CockpitBackground />
-        <StatusBar />
-        {/* bottom padding clears the fixed command console dock */}
-        <div className="pb-16">
+        <Nav />
+        <div className="pt-14">
           {children}
-          <FooterStrip />
+          <Footer />
         </div>
-        <CommandConsole />
-        <Scanlines />
       </body>
     </html>
   );
