@@ -16,7 +16,7 @@ const Hero = () => (
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/80">
                 I build web apps, internal tools, and AI-backed products: ERP systems, SaaS,
-                client sites. Based in Mogadishu, working remote.
+                client sites. Based in Nairobi, working remote.
             </p>
 
             <div className="mt-5 flex flex-wrap justify-center gap-3 sm:justify-start">
