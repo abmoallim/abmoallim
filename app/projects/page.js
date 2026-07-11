@@ -20,7 +20,7 @@ export default function Projects() {
                 <h1 className="mt-1">Projects</h1>
                 <p className="mt-2 max-w-xl text-ink/70">
                     A mix of live products, internal tools, and client work. Most of what I&apos;ve built is
-                    under NDA — this is the part I can show.
+                    under NDA, so this is the part I can show.
                 </p>
             </div>
 

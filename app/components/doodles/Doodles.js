@@ -1,4 +1,4 @@
-// Small hand-drawn accent marks — sketchy strokes instead of stock icons.
+// Small hand-drawn accent marks: sketchy strokes instead of stock icons.
 // Kept dependency-free: hand-tuned SVG paths with irregular curves.
 
 export const FileIcon = ({ className = '' }) => (

@@ -37,15 +37,15 @@ export default function Blog() {
                         <li key={blog.slug}>
                             <Link
                                 href={`/blog/${blog.slug}`}
-                                className="group grid grid-cols-[auto,1fr] items-center gap-4 py-4 sm:grid-cols-[96px,1fr]"
+                                className="group grid grid-cols-[96px,1fr] items-center gap-4 py-4 sm:grid-cols-[160px,1fr]"
                             >
-                                <span className="relative hidden h-14 w-24 shrink-0 overflow-hidden border border-ink/10 sm:block">
+                                <span className="relative block h-16 w-24 shrink-0 overflow-hidden border border-ink/10 sm:h-24 sm:w-40">
                                     <Image
                                         src={blog.image}
                                         alt=""
                                         fill
                                         className="object-cover"
-                                        sizes="96px"
+                                        sizes="(min-width: 640px) 160px, 96px"
                                     />
                                 </span>
                                 <span className="min-w-0">

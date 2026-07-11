@@ -14,7 +14,7 @@ const Contact = () => {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch {
-            // clipboard blocked — the address is visible right next to the button
+            // clipboard blocked; the address is visible right next to the button
         }
     };
 
@@ -51,7 +51,7 @@ const Contact = () => {
                             rel="noopener noreferrer"
                             className="text-ink/70 underline decoration-ink/20 underline-offset-4 hover:text-clay hover:decoration-clay/50"
                         >
-                            {s.name} — {s.url.replace(/^https?:\/\//, '')}
+                            {s.name} · {s.url.replace(/^https?:\/\//, '')}
                         </a>
                     </li>
                 ))}

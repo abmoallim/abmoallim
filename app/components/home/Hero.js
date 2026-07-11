@@ -15,7 +15,7 @@ const Hero = () => (
             <p className="mt-1.5 text-ink/60">Software engineer</p>
 
             <p className="mt-4 max-w-xl text-base leading-relaxed text-ink/80">
-                I build web apps, internal tools, and AI-backed products — ERP systems, SaaS,
+                I build web apps, internal tools, and AI-backed products: ERP systems, SaaS,
                 client sites. Based in Mogadishu, working remote.
             </p>
 

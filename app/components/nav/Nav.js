@@ -1,5 +1,5 @@
 "use client";
-// Site nav styled as a hand-drawn Linux file tree — the one deliberate
+// Site nav styled as a hand-drawn Linux file tree, the one deliberate
 // "cool computer" moment on the site. Everything else stays restrained.
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

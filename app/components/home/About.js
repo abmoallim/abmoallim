@@ -15,7 +15,7 @@ const About = () => (
         <div className="grid gap-10 md:grid-cols-[1fr,1fr]">
             <div className="space-y-4 text-ink/80">
                 <p>
-                    I&apos;m a software engineer working across web apps, AI tooling, and internal systems —
+                    I&apos;m a software engineer working across web apps, AI tooling, and internal systems,
                     mostly for small businesses that need something built and shipped, not just prototyped.
                 </p>
                 <p>
@@ -38,7 +38,7 @@ const About = () => (
                         <li key={w.company} className="flex flex-wrap items-baseline justify-between gap-x-3 border-b border-ink/10 pb-2.5">
                             <span>
                                 <span className="font-medium text-ink">{w.company}</span>
-                                <span className="text-ink/50"> — {w.role}</span>
+                                <span className="text-ink/50"> · {w.role}</span>
                             </span>
                             <span className="font-mono text-xs text-ink/40">{w.dates}</span>
                         </li>
