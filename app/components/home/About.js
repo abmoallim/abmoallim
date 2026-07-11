@@ -27,7 +27,7 @@ const About = () => (
                     Center on AI and freelancing.
                 </p>
                 <p className="text-sm text-ink/50">
-                    Unrelated to any of this: I&apos;m slowly working toward a pilot&apos;s license.
+                    Unrelated to any of this: I spend a weird amount of time reading about flight, planes, drones, birds of prey.
                 </p>
             </div>
 
